@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mann Air Balang</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f5f5;
+color:#333;
+}
+
+.dark{
+background:#111;
+color:white;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:#3b2512;
+padding:15px;
+z-index:1000;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+width:90%;
+margin:auto;
+color:white;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:25px;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+}
+
+.hero{
+height:100vh;
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+url("https://images.unsplash.com/photo-1556679343-c1c1c0c6f2a2");
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+}
+
+.hero h1{
+font-size:50px;
+}
+
+.btn{
+background:#ff9f43;
+padding:12px 25px;
+border-radius:30px;
+text-decoration:none;
+color:white;
+display:inline-block;
+margin-top:20px;
+}
+
+section{
+padding:80px 10%;
+text-align:center;
+}
+
+.menu-container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+margin-top:30px;
+}
+
+.card{
+background:white;
+padding:30px;
+width:250px;
+border-radius:15px;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.price{
+color:#ff9f43;
+font-size:22px;
+font-weight:bold;
+}
+
+.promo{
+background:#ff9f43;
+color:white;
+padding:40px;
+font-size:24px;
+}
+
+.gallery img{
+width:200px;
+margin:10px;
+border-radius:10px;
+}
+
+.review{
+background:white;
+padding:20px;
+margin:20px auto;
+width:300px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:40px;
+padding:40px;
+background:#eee;
+}
+
+form input,form select,form textarea{
+width:250px;
+padding:10px;
+margin:8px;
+}
+
+footer{
+background:#3b2512;
+color:white;
+padding:20px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+font-size:28px;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+
+<h2>Mann Air Balang</h2>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#menu">Menu</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<button onclick="darkMode()">🌙</button>
+
+</nav>
+</header>
+
+<section class="hero" id="home">
+
+<div>
+<h1>Mann Air Balang</h1>
+<p>Refreshing Teh Ais & Teh Ais Cincau</p>
+
+<a href="#menu" class="btn">View Menu</a>
+
+</div>
+
+</section>
+
+<section class="promo">
+
+🔥 Hot Weather Promo  
+Buy 3 Drinks Get 1 Free
+
+</section>
+
+<section id="menu">
+
+<h2>Our Drinks</h2>
+
+<div class="menu-container">
+
+<div class="card">
+<h3>Teh Ais</h3>
+<p>Fresh brewed tea with creamy taste.</p>
+<div class="price">RM4</div>
+</div>
+
+<div class="card">
+<h3>Teh Ais Cincau</h3>
+<p>Refreshing tea with soft grass jelly.</p>
+<div class="price">RM4</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div>
+<h1>50+</h1>
+<p>Drinks Sold</p>
+</div>
+
+<div>
+<h1>30+</h1>
+<p>Happy Customers</p>
+</div>
+
+<div>
+<h1>1+</h1>
+<p>Events Served</p>
+</div>
+
+</section>
+
+<section id="gallery">
+
+<h2>Gallery</h2>
+
+<div class="gallery">
+
+<img src="mann1.jpg">
+<img src="mann2.jpg">
+<img src="mann3.jpg">
+
+</div>
+
+</section>
+
+<section id="reviews">
+
+<h2>Customer Reviews</h2>
+
+<div class="review">
+⭐⭐⭐⭐⭐  
+"Teh ais dia memang padu!"  
+<b>- Muhammad</b>
+</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐  
+"Cincau lembut dan sejuk. Sedap!"  
+<b>- Anis</b>
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>Order Your Drink</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name" required><br>
+
+<input type="tel" placeholder="Phone Number"><br>
+
+<select>
+<option>Teh Ais</option>
+<option>Teh Ais Cincau</option>
+</select><br>
+
+<input type="number" placeholder="Quantity"><br>
+
+<textarea placeholder="Extra Message"></textarea><br>
+
+<button class="btn">Submit Order</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<p>© 2026 Mann Air Balang</p>
+
+</footer>
+
+<a href="https://wa.me/60124437414" class="whatsapp">💬</a>
+
+<script>
+
+function darkMode(){
+document.body.classList.toggle("dark");
+}
+
+</script>
+
+</body>
+</html>
