@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mann Air Balang · Teh Ais & Cincau</title>
+  <!-- Font Awesome 6 (untuk ikon sosial media) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Font Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #f5efe3;
+      color: #2d2a24;
+    }
+
+    /* Header Gerai */
+    .header {
+      background: linear-gradient(160deg, #1b4a2a 0%, #2e6a3b 100%);
+      color: white;
+      padding: 2rem 1.5rem 4rem;
+      border-bottom-left-radius: 3rem;
+      border-bottom-right-radius: 3rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,40,0,0.2);
+    }
+
+    .header::after {
+      content: "🧊 🍹";
+      font-size: 6rem;
+      opacity: 0.1;
+      position: absolute;
+      bottom: -10px;
+      right: 10px;
+      transform: rotate(-10deg);
+      white-space: nowrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .brand i {
+      color: #f9d371;
+      filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.2));
+    }
+
+    .badge-gerai {
+      background: #f3b33d;
+      color: #1d4a2a;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .info-chip {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* Sosial media di header */
+    .social-header {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-header a {
+      color: white;
+      background: rgba(255,255,255,0.15);
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: 0.2s;
+      text-decoration: none;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .social-header a:hover {
+      background: #f3b33d;
+      color: #1b4a2a;
+      transform: translateY(-3px);
+    }
+
+    /* Section Menu Utama - 2 item sahaja */
+    .menu-duo {
+      margin: -2.5rem 1.2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Animation bergerak untuk kad */
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .menu-card {
+      background: white;
+      border-radius: 2.5rem;
+      padding: 1.5rem;
+      box-shadow: 0 25px 30px -12px rgba(40, 60, 30, 0.25);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+      border: 1px solid rgba(200, 180, 140, 0.3);
+      animation: slideUp 0.8s ease-out forwards;
+      opacity: 0; /* animation triggers */
+    }
+
+    .menu-card:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    /* Gambar sebenar minuman - real images */
+    .drink-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 2rem;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 15px 20px -8px #8b7a5b;
+      border: 3px solid white;
+      flex-shrink: 0;
+    }
+
+    .img-teh-ais {
+      background-image: url("https://daganghalal.blob.core.windows.net/46267/Product/teh-ais-1758783989847.jpg");
+    }
+    .img-teh-cincau {
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdoI1hrmt6qvGVMDHlEGj5OcU2kQhj-YQlDQ&s");
+    }
+
+    .drink-info {
+      flex: 1;
+    }
+
+    .drink-info h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1a4a2a;
+      line-height: 1.2;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .price-tag {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #c76d1c;
+      margin: 0.2rem 0 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .price-tag small {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #7d6b50;
+    }
+
+    .desc-badge {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .desc-item {
+      background: #f0eadb;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #3e6135;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* animasi bergerak tambahan (float) untuk imej */
+    .menu-card:hover .drink-img {
+      transform: scale(1.02) rotate(1deg);
+      transition: transform 0.3s ease;
+    }
+
+    /* Contact & Info Section (gantikan maps) */
+    .info-section {
+      background: white;
+      margin: 0 1.2rem 2rem;
+      border-radius: 2.5rem;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 15px 20px -8px #b9aa8e;
+      border: 1px solid #e2d5bc;
+      text-align: center;
+    }
+
+    .info-section h3 {
+      font-size: 1.8rem;
+      color: #1e4f2a;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .info-section h3 i {
+      color: #f3b33d;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: #f8f4ea;
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .contact-item i {
+      width: 30px;
+      font-size: 1.5rem;
+      color: #2e6a3b;
+    }
+
+    .contact-item a {
+      color: #2d2a24;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-item a:hover {
+      color: #c76d1c;
+    }
+
+    .qr-code {
+      margin: 2rem auto 1rem;
+      width: 150px;
+      height: 150px;
+      background: #f0eadb;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px dashed #9abf8c;
+    }
+
+    .qr-code i {
+      font-size: 5rem;
+      color: #2e6a3b;
+      opacity: 0.7;
+    }
+
+    .qr-code span {
+      display: none; /* placeholder untuk QR sebenar */
+    }
+
+    .qr-text {
+      font-size: 0.9rem;
+      color: #5f6b4b;
+      margin-top: 10px;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 25px;
+      background: #25D366;
+      color: white;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      box-shadow: 0 20px 25px -5px #1d4b1d;
+      text-decoration: none;
+      transition: 0.2s;
+      z-index: 999;
+      animation: bounceSlow 2.2s infinite;
+    }
+
+    @keyframes bounceSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .whatsapp-float:hover {
+      background: #128C7E;
+      transform: scale(1.08);
+    }
+
+    /* Footer dengan social media */
+    .footer {
+      background: #233f25;
+      color: #f0eedd;
+      padding: 2rem 1.5rem 1.8rem;
+      border-top-left-radius: 2.5rem;
+      border-top-right-radius: 2.5rem;
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .footer .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 20px 0 15px;
+    }
+
+    .footer .social-links a {
+      color: white;
+      background: #3d5e3d;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      transition: 0.2s;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,200,0.3);
+    }
+
+    .footer .social-links a:hover {
+      background: #f3b33d;
+      color: #1b4a2a;
+      transform: translateY(-5px);
+      border-color: white;
+    }
+
+    .footer .credit {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-top: 15px;
+    }
+
+    .footer i.fa-heart {
+      color: #f08c8c;
+    }
+
+    /* Responsive */
+    @media (max-width: 550px) {
+      .menu-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.8rem 1.2rem;
+      }
+      .drink-img {
+        width: 170px;
+        height: 170px;
+      }
+      .brand {
+        font-size: 1.8rem;
+      }
+      .contact-item {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Gerai dengan Social Media Icons -->
+  <div class="header">
+    <div class="brand">
+      <i class="fas fa-mug-hot"></i> Mann Air Balang
+      <span class="badge-gerai">2 menu</span>
+    </div>
+    <div style="font-size: 1.1rem; margin-top: 5px; opacity: 0.9;">
+      <i class="fas fa-location-dot"></i> Gerai Bergerak • Hubungi untuk lokasi
+    </div>
+    <div class="info-row">
+      <span class="info-chip"><i class="far fa-clock"></i> 4pm – 6pm</span>
+      <span class="info-chip"><i class="fas fa-crown"></i> air balang asli</span>
+    </div>
+    
+    <!-- Social Media Icons di Header (IG & FB) -->
+    <div class="social-header">
+      <a href="https://instagram.com/mann.airbalang" target="_blank" title="Instagram Mann Air Balang">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://facebook.com/Mann.Airbalang" target="_blank" title="Facebook Mann Air Balang">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- DUA MENU UTAMA: Teh Ais & Teh Ais Cincau (dengan gambar real & animasi) -->
+  <div class="menu-duo">
+    <!-- Teh Ais -->
+    <div class="menu-card">
+      <div class="drink-img img-teh-ais" alt="Teh Ais real"></div>
+      <div class="drink-info">
+        <h2><i class="fas fa-cube" style="font-size: 1.7rem; color: #8B6B4D;"></i> Teh Ais</h2>
+        <div class="price-tag">
+          RM 4.00 </small>
+        </div>
+        <div class="desc-badge">
+          <span class="desc-item"><i class="fas fa-droplet" style="color:#2d7ea0;"></i> teh tarik special</span>
+          <span class="desc-item"><i class="fas fa-fire"></i> best seller</span>
+        </div>
+        <div style="margin-top: 15px;">
+          <span style="background: #efefef; padding: 0.3rem 1.2rem; border-radius: 40px; font-weight: 600; font-size: 0.85rem;">
+            </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Teh Ais Cincau -->
+    <div class="menu-card">
+      <div class="drink-img img-teh-cincau" alt="Teh Ais Cincau real"></div>
+      <div class="drink-info">
+        <h2><i class="fas fa-seedling" style="color: #2E7D32;"></i> Teh Ais Cincau</h2>
+        <div class="price-tag">
+          RM 4.00 <small>special</small>
+        </div>
+        <div class="desc-badge">
+          <span class="desc-item"><i class="fas fa-check-circle" style="color:#2d7a3d;"></i> cincau lembut</span>
+          <span class="desc-item"><i class="fas fa-trophy"></i> signature</span>
+          <span class="desc-item"><i class="fas fa-whiskey-glass"></i> kurang manis option</span>
+        </div>
+        <div style="margin-top: 15px;">
+          <span style="background: #efefef; padding: 0.3rem 1.2rem; border-radius: 40px; font-weight: 600; font-size: 0.85rem;">
+            <i class="fas fa-crown" style="color: #ad8b3b;"></i> paling laris
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION INFO (GANTIKAN MAPS) - Contact & Social -->
+  <div class="info-section">
+    <h3>
+      <i class="fas fa-solid fa-phone-alt"></i> 
+      Hubungi Kami
+      <i class="fas fa-solid fa-message"></i>
+    </h3>
+    
+    <div class="contact-grid">
+      <div class="contact-item">
+        <i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/60124437414" target="_blank">012-443 7414 (WhatsApp)</a>
+      </div>
+      
+      <div class="contact-item">
+        <i class="fab fa-instagram"></i>
+        <a href="https://instagram.com/mann.airbalang" target="_blank">@mannairbalang</a>
+      </div>
+      
+      <div class="contact-item">
+        <i class="fab fa-facebook"></i>
+        <a href="https://facebook.com/Mann.Airbalang" target="_blank">Mann Air Balang</a>
+      </div>
+      
+      <div class="contact-item">
+        <i class="fas fa-phone-alt"></i>
+        <span>012-443 7414</span>
+      </div>
+    </div>
+    
+    <div style="margin-top: 25px; padding-top: 15px; border-top: 2px dashed #d4cbaf;">
+      <p style="font-weight: 600; color: #6F4E37;">
+        <i class="fas fa-truck"></i> Penghantaran tersedia • Grab / Foodpanda
+      </p>
+      <p style="margin-top: 8px; background: #f0eadb; padding: 0.5rem; border-radius: 50px; font-size: 0.9rem;">
+        <i class="fas fa-map-pin"></i> Lokasi terkini: Sila hubungi untuk tahu gerai hari ini
+      </p>
+    </div>
+  </div>
+
+  <!-- BUTTON WHATSAPP FLOATING ORDER -->
+  <a href="https://wa.me/60124437414?text=Hai%20Mann%20Air%20Balang!%20Saya%20nak%20order%20Teh%20Ais%20%26%20Teh%20Ais%20Cincau%20%F0%9F%8D%B9%F0%9F%A7%8A" 
+     class="whatsapp-float" 
+     target="_blank"
+     aria-label="Order WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Footer dengan Social Media -->
+  <div class="footer">
+    <div class="footer-content">
+      <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 5px;">
+        <i class="fas fa-mug-hot"></i> Mann Air Balang
+      </div>
+      <div style="margin-bottom: 15px; font-size: 0.95rem;">
+        <i class="fas fa-phone-alt"></i> 012-443 7414 (En. Mann)
+      </div>
+      
+      <!-- Social Media Links di Footer -->
+      <div class="social-links">
+        <a href="https://instagram.com/mann.airbalang" target="_blank" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/Mann.Airbalang" target="_blank" title="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </div>
+      
+      <div class="credit">
+        <i class="fas fa-copyright"></i> 2025 Mann Air Balang — dua menu legenda: teh ais & cincau <br>
+        <span>• segar sampai hati</span><br>
+        <span style="display: inline-block; margin-top: 8px;">
+          <i class="fab fa-instagram" style="color: #f3b33d;"></i> 
+          <i class="fab fa-facebook" style="color: #f3b33d; margin: 0 5px;"></i> 
+          @mannairbalang
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script untuk animation -->
+  <script>
+    (function() {
+      console.log('Mann Air Balang — 2 menu edition (no maps)');
+
+      // smooth scroll untuk internal links (jika ada)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if(target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
+
+  <noscript>2 menu original Teh Ais & Teh Ais Cincau</noscript>
+</body>
+</html>
